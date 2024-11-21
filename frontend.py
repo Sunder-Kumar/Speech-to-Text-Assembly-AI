@@ -12,6 +12,7 @@ if not os.path.exists("temp"):
 UPLOAD_URL = "https://7d78-39-34-141-84.ngrok-free.app/upload"
 TRANSCRIPTION_URL = "http://127.0.0.1:5000/transcription/"
 
+
 st.title("Sophisticated Speech-to-Text Application")
 st.write("Upload your audio files and let AssemblyAI's Universal-2 transcribe them!")
 
