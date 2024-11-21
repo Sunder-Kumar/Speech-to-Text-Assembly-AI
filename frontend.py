@@ -9,8 +9,8 @@ if not os.path.exists("temp"):
     os.makedirs("temp")
 
 # API endpoints
-UPLOAD_URL = "https://7d78-39-34-141-84.ngrok-free.app/upload"
-TRANSCRIPTION_URL = "https://your-ngrok-subdomain.ngrok.io/transcription/"
+UPLOAD_URL = "https://effb-39-34-141-84.ngrok-free.app/upload"
+TRANSCRIPTION_URL = "https://effb-39-34-141-84.ngrok-free.app/transcription/"
 
 
 st.title("Sophisticated Speech-to-Text Application")
