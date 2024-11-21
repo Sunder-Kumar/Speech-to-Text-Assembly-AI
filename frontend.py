@@ -10,7 +10,7 @@ if not os.path.exists("temp"):
 
 # API endpoints
 UPLOAD_URL = "https://7d78-39-34-141-84.ngrok-free.app/upload"
-TRANSCRIPTION_URL = "http://127.0.0.1:5000/transcription/"
+TRANSCRIPTION_URL = "https://your-ngrok-subdomain.ngrok.io/transcription/"
 
 
 st.title("Sophisticated Speech-to-Text Application")
