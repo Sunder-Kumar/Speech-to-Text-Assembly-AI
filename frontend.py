@@ -9,7 +9,7 @@ if not os.path.exists("temp"):
     os.makedirs("temp")
 
 # API endpoints
-UPLOAD_URL = "http://127.0.0.1:5000/upload"
+UPLOAD_URL = "https://7d78-39-34-141-84.ngrok-free.app/upload"
 TRANSCRIPTION_URL = "http://127.0.0.1:5000/transcription/"
 
 st.title("Sophisticated Speech-to-Text Application")
