@@ -1,2 +1,3 @@
 web: ./startup.sh
-web: gunicorn app:app
+web: python -m spacy download en-core-web-sm && gunicorn app:app
+
