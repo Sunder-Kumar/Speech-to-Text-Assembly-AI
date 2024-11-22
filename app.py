@@ -2,6 +2,8 @@ import os
 from flask import Flask, request, jsonify
 import requests
 from dotenv import load_dotenv
+from waitress import serve
+from app import app
 import spacy
 from spacy.cli import download
 
@@ -102,10 +104,6 @@ def transcription(transcript_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 if __name__ == "__main__":
-    # Fetch the port number from the environment variable "PORT", defaulting to 5000 if not found
-    port = int(os.environ.get("PORT", 5000))
-    # Run the Flask app, binding to all network interfaces (0.0.0.0) and using the fetched port
-    app.run(host="0.0.0.0", port=port)
+    serve(app, host='0.0.0.0', port=5000)
 
