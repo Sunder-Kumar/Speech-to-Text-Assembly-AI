@@ -9,9 +9,8 @@ if not os.path.exists("temp"):
     os.makedirs("temp")
 
 # API endpoints
-UPLOAD_URL = "http://127.0.0.1:5000/upload"
-TRANSCRIPTION_URL = "http://127.0.0.1:5000/transcription/"
-
+UPLOAD_URL = "https://speech-to-text-assemblyai.herokuapp.com/upload"
+TRANSCRIPTION_URL = "https://speech-to-text-assemblyai.herokuapp.com/transcription/"
 
 st.title("Sophisticated Speech-to-Text Application")
 st.write("Upload your audio files and let AssemblyAI's Universal-2 transcribe them!")
