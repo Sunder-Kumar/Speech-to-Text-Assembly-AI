@@ -5,3 +5,4 @@ spacy
 gtts
 python-dotenv
 gunicorn
+en-core-web-sm==3.1.0
