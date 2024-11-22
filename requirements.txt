@@ -2,7 +2,7 @@ flask
 streamlit
 requests
 spacy==3.8.2
-en-core-web-sm==3.0.0
+en-core-web-sm==3.8.0
 gtts
 python-dotenv
 gunicorn
