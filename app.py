@@ -96,4 +96,8 @@ def transcription(transcript_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Fetch the port number from the environment variable "PORT", defaulting to 5000 if not found
+    port = int(os.environ.get("PORT", 5000))
+    # Run the Flask app, binding to all network interfaces (0.0.0.0) and using the fetched port
+    app.run(host="0.0.0.0", port=port)
+
