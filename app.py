@@ -3,16 +3,8 @@ from flask import Flask, request, jsonify
 import requests
 from dotenv import load_dotenv
 from waitress import serve
-from app import app
 import spacy
 from spacy.cli import download
-
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
-
 
 # Load environment variables
 load_dotenv()
@@ -25,8 +17,11 @@ ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
 HEADERS = {"authorization": ASSEMBLYAI_API_KEY}
 
 # Load spaCy model for NLP
-nlp = spacy.load("en_core_web_sm")
-
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # Upload audio to AssemblyAI
 def upload_audio(file_path):
@@ -38,7 +33,6 @@ def upload_audio(file_path):
         )
     response.raise_for_status()
     return response.json()["upload_url"]
-
 
 # Transcribe audio with speaker diarization and language support
 def transcribe_audio(audio_url, language_code, enable_speaker_labels):
@@ -56,7 +50,6 @@ def transcribe_audio(audio_url, language_code, enable_speaker_labels):
     response.raise_for_status()
     return response.json()
 
-
 # Get transcription result
 def get_transcription(transcript_id):
     response = requests.get(
@@ -65,7 +58,6 @@ def get_transcription(transcript_id):
     )
     response.raise_for_status()
     return response.json()
-
 
 @app.route("/upload", methods=["POST"])
 def upload():
@@ -95,7 +87,6 @@ def upload():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 @app.route("/transcription/<transcript_id>", methods=["GET"])
 def transcription(transcript_id):
     try:
@@ -106,4 +97,3 @@ def transcription(transcript_id):
 
 if __name__ == "__main__":
     serve(app, host='0.0.0.0', port=5000)
-
